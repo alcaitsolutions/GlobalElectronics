@@ -1,0 +1,1468 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v3",
+        "title": "PartSearch Api",
+        "description": "Search for products and retrieve details and pricing.",
+        "termsOfService": "https:\/\/www.digikey.com\/en\/terms-and-conditions",
+        "contact": {
+            "name": "API Support",
+            "url": "https:\/\/developer.digikey.com\/support",
+            "email": "api.support@digikey.com"
+        }
+    },
+    "host": "api.digikey.com",
+    "x-host-sandbox": "sandbox-api.digikey.com",
+    "x-host-production": "api.digikey.com",
+    "basePath": "\/Search\/v3",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "\/Products\/Keyword": {
+            "post": {
+                "tags": [
+                    "PartSearch"
+                ],
+                "summary": "KeywordSearch can search for any product in the Digi-Key catalog.",
+                "description": "Search by keyword, then narrow down the search using available filters and search options.<br \/>\r\nLocale information is required in the headers for accurate pricing and currencies. Locale defaults to United\r\nStates. <br \/>\r\nNote that KeywordSearch results have cached pricing and availability. If real time pricing and availability is\r\nneeded, make a ProductDetails call.<br \/>",
+                "operationId": "KeywordSearch",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Request",
+                        "in": "body",
+                        "description": "KeywordSearchRequest",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#\/definitions\/KeywordSearchRequest"
+                        }
+                    },
+                    {
+                        "name": "Includes",
+                        "in": "query",
+                        "description": "Comma separated list of fields to return. Used to customize response to reduce bandwidth by selecting fields that you wish to receive. For example: \"Products(DigiKeyPartNumber,QuantityAvailable)\"",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "OAuth Bearer Token. Please see<a href= \"https:\/\/developer.digikey.com\/documentation\/oauth\" style=\"color:blue\" target= \"_blank\" > OAuth 2.0 Documentation <\/a > page for more info.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Client-Id",
+                        "in": "header",
+                        "description": "The Client Id for your App.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Site",
+                        "in": "header",
+                        "description": "Two letter code for Digi-Key product website to search on. Different countries sites have different part restrictions, supported languages, and currencies. Acceptable values include: US, CA, JP, UK, DE, AT, BE, DK, FI, GR, IE, IT, LU, NL, NO, PT, ES, KR, HK, SG, CN, TW, AU, FR, IN, NZ, SE, MX, CH, IL, PL, SK, SI, LV, LT, EE, CZ, HU, BG, MY, ZA, RO.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Language",
+                        "in": "header",
+                        "description": "Two letter code for language to search on. Langauge must be supported by the selected site. If searching on keyword, this language is used to find matches. Acceptable values include: en, ja, de, fr, ko, zhs, zht, it, es, he.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Currency",
+                        "in": "header",
+                        "description": "Three letter code for Currency to return part pricing for. Currency must be supported by the selected site. Acceptable values include: USD, CAD, JPY, GBP, EUR, HKD, SGD, TWD, KRW, AUD, NZD, INR, DKK, NOK, SEK, ILS, CNY, PLN, CHF, CZK, HUF, RON, ZAR, MYR.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-ShipToCountry",
+                        "in": "header",
+                        "description": "ISO code for country to ship to.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Customer-Id",
+                        "in": "header",
+                        "description": "Your Digi-Key Customer id. If your account has multiple Customer Ids for different regions, this allows you to select one of them.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#\/definitions\/KeywordSearchResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - The input model is invalid or malformed",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - Token is expired or client Id or subscription are invalid",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests - Your rate limit has been exceeded",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable - The service is temporarily unavailable",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "\/Products\/{DigiKeyPartNumber}": {
+            "get": {
+                "tags": [
+                    "PartSearch"
+                ],
+                "summary": "Retrieve detailed product information including real time pricing and availability.",
+                "description": "Works best with a Digi-Key part number. Some manufacturer part numbers conflict with unrelated parts and may not return the correct product.\r\nLocale information is required in the headers for accurate pricing and currencies. Locale defaults to United States.",
+                "operationId": "ProductDetails",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "DigiKeyPartNumber",
+                        "in": "path",
+                        "description": "The product to retrieve details for.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Includes",
+                        "in": "query",
+                        "description": "Comma separated list of fields to return. Used to customize response to reduce bandwidth by selecting fields that you wish to receive. For example: \"DigiKeyPartNumber,QuantityAvailable,AssociatedProducts[2]\"",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "OAuth Bearer Token. Please see<a href= \"https:\/\/developer.digikey.com\/documentation\/oauth\" style=\"color:blue\" target= \"_blank\" > OAuth 2.0 Documentation <\/a > page for more info.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Client-Id",
+                        "in": "header",
+                        "description": "The Client Id for your App.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Site",
+                        "in": "header",
+                        "description": "Two letter code for Digi-Key product website to search on. Different countries sites have different part restrictions, supported languages, and currencies. Acceptable values include: US, CA, JP, UK, DE, AT, BE, DK, FI, GR, IE, IT, LU, NL, NO, PT, ES, KR, HK, SG, CN, TW, AU, FR, IN, NZ, SE, MX, CH, IL, PL, SK, SI, LV, LT, EE, CZ, HU, BG, MY, ZA, RO.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Language",
+                        "in": "header",
+                        "description": "Two letter code for language to search on. Langauge must be supported by the selected site. If searching on keyword, this language is used to find matches. Acceptable values include: en, ja, de, fr, ko, zhs, zht, it, es, he.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Currency",
+                        "in": "header",
+                        "description": "Three letter code for Currency to return part pricing for. Currency must be supported by the selected site. Acceptable values include: USD, CAD, JPY, GBP, EUR, HKD, SGD, TWD, KRW, AUD, NZD, INR, DKK, NOK, SEK, ILS, CNY, PLN, CHF, CZK, HUF, RON, ZAR, MYR.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-ShipToCountry",
+                        "in": "header",
+                        "description": "ISO code for country to ship to.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Customer-Id",
+                        "in": "header",
+                        "description": "Your Digi-Key Customer id. If your account has multiple Customer Ids for different regions, this allows you to select one of them.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#\/definitions\/ProductDetails"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - The input model is invalid or malformed",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - Token is expired or client Id or subscription are invalid",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests - Your rate limit has been exceeded",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden - The Request is denied due to part restrictions",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - The product was not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable - The service is temporarily unavailable",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "\/Products\/{DigiKeyPartNumber}\/DigiReelPricing": {
+            "get": {
+                "tags": [
+                    "PartSearch"
+                ],
+                "summary": "Calculate the DigiReel pricing for the given DigiKeyPartNumber and RequestedQuantity",
+                "operationId": "DigiReelPricing",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "DigiKeyPartNumber",
+                        "in": "path",
+                        "description": "The Digi-Key PartNumber requested for Digi-Reel price calculation. It must be a Digi-Key part number that is for a Digi-Reel pack type.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "RequestedQuantity",
+                        "in": "query",
+                        "description": "The quantity of the product you are looking to create a Digi-Reel with. Must be greater than 0.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "Includes",
+                        "in": "query",
+                        "description": "Comma separated list of fields to return. Used to customize response to reduce bandwidth by selecting fields that you wish to receive. For example: \"ExtendedPrice,ReelingFee\"",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "OAuth Bearer Token. Please see<a href= \"https:\/\/developer.digikey.com\/documentation\/oauth\" style=\"color:blue\" target= \"_blank\" > OAuth 2.0 Documentation <\/a > page for more info.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Client-Id",
+                        "in": "header",
+                        "description": "The Client Id for your App.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Site",
+                        "in": "header",
+                        "description": "Two letter code for Digi-Key product website to search on. Different countries sites have different part restrictions, supported languages, and currencies. Acceptable values include: US, CA, JP, UK, DE, AT, BE, DK, FI, GR, IE, IT, LU, NL, NO, PT, ES, KR, HK, SG, CN, TW, AU, FR, IN, NZ, SE, MX, CH, IL, PL, SK, SI, LV, LT, EE, CZ, HU, BG, MY, ZA, RO.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Language",
+                        "in": "header",
+                        "description": "Two letter code for language to search on. Langauge must be supported by the selected site. If searching on keyword, this language is used to find matches. Acceptable values include: en, ja, de, fr, ko, zhs, zht, it, es, he.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-Currency",
+                        "in": "header",
+                        "description": "Three letter code for Currency to return part pricing for. Currency must be supported by the selected site. Acceptable values include: USD, CAD, JPY, GBP, EUR, HKD, SGD, TWD, KRW, AUD, NZD, INR, DKK, NOK, SEK, ILS, CNY, PLN, CHF, CZK, HUF, RON, ZAR, MYR.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Locale-ShipToCountry",
+                        "in": "header",
+                        "description": "ISO code for country to ship to.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-DIGIKEY-Customer-Id",
+                        "in": "header",
+                        "description": "Your Digi-Key Customer id. If your account has multiple Customer Ids for different regions, this allows you to select one of them.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#\/definitions\/DigiReelPricing"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - The input model is invalid or malformed",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - Token is expired or Client Id or subscription are invalid",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests - Your rate limit has been exceeded",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden - The Request is denied due to part restrictions",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - The product was not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable - The service is temporarily unavailable",
+                        "schema": {
+                            "$ref": "#\/definitions\/ApiErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "apiKeySecurity": {
+            "type": "apiKey",
+            "name": "X-DIGIKEY-Client-Id",
+            "in": "header"
+        },
+        "oauth2AccessCodeSecurity": {
+            "type": "oauth2",
+            "flow": "accessCode",
+            "authorizationUrl": "https:\/\/api.digikey.com\/v1\/oauth2\/authorize",
+            "tokenUrl": "https:\/\/api.digikey.com\/v1\/oauth2\/token"
+        }
+    },
+    "security": [
+        {
+            "apiKeySecurity": [],
+            "oauth2AccessCodeSecurity": []
+        }
+    ],
+    "definitions": {
+        "KeywordSearchRequest": {
+            "description": "Keyword Search Request object",
+            "required": [
+                "Keywords"
+            ],
+            "type": "object",
+            "properties": {
+                "Keywords": {
+                    "description": "Keywords to search on. Can be a description, partial part number, manufacturer part number, or a Digi-Key part number.",
+                    "maxLength": 250,
+                    "minLength": 1,
+                    "type": "string",
+                    "example": "battery"
+                },
+                "RecordCount": {
+                    "format": "int32",
+                    "description": "Number of products to return between 1 and 50.",
+                    "maximum": 50,
+                    "minimum": 1,
+                    "type": "integer",
+                    "example": "10"
+                },
+                "RecordStartPosition": {
+                    "format": "int32",
+                    "description": "The starting index of the records returned. This is used to paginate beyond 50 results.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "Filters": {
+                    "$ref": "#\/definitions\/Filters",
+                    "description": "Filters to narrow down the search results based on parameters."
+                },
+                "Sort": {
+                    "$ref": "#\/definitions\/SortParameters",
+                    "description": "Sort on the specified field in ascending or descending order."
+                },
+                "RequestedQuantity": {
+                    "format": "int32",
+                    "description": "The quantity of the product you are looking to purchase. This is used with the SortByUnitPrice SortOption as price varies at differing quantities.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "SearchOptions": {
+                    "description": "Filters the search results by the included SearchOption.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "enum": [
+                            "LeadFree",
+                            "CollapsePackagingTypes",
+                            "ExcludeNonStock",
+                            "Has3DModel",
+                            "InStock",
+                            "ManufacturerPartSearch",
+                            "NewProductsOnly",
+                            "RoHSCompliant",
+                            "HasMentorFootprint"
+                        ],
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "Filters": {
+            "description": "Filters to narrow down the search results based on parameters.",
+            "type": "object",
+            "properties": {
+                "TaxonomyIds": {
+                    "description": "A collection of Taxonomy Ids to filter on. Ids can be found in the initial search response.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "ManufacturerIds": {
+                    "description": "A collection of Manufacturer Ids to filter on. Ids can be found in the initial search response.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "ParametricFilters": {
+                    "description": "A collection of ParametricFilters. A ParametricFilter consists of a ParameterId and a ValueId. Those Ids can also be found in the Search response.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/ParametricFilter"
+                    }
+                }
+            }
+        },
+        "SortParameters": {
+            "description": "Sort on the specified field in ascending or descending order.",
+            "required": [
+                "SortOption",
+                "Direction"
+            ],
+            "type": "object",
+            "properties": {
+                "SortOption": {
+                    "description": "Specifies the field to sort on.",
+                    "enum": [
+                        "SortByDigiKeyPartNumber",
+                        "SortByManufacturerPartNumber",
+                        "SortByDescription",
+                        "SortByManufacturer",
+                        "SortByMinimumOrderQuantity",
+                        "SortByQuantityAvailable",
+                        "SortByUnitPrice",
+                        "SortByParameter"
+                    ],
+                    "type": "string",
+                    "example": "SortByDigiKeyPartNumber"
+                },
+                "Direction": {
+                    "description": "The sort direction can be Ascending or Descending",
+                    "enum": [
+                        "Ascending",
+                        "Descending"
+                    ],
+                    "type": "string",
+                    "example": "Ascending"
+                },
+                "SortParameterId": {
+                    "format": "int32",
+                    "description": "The ParameterId of the parameter to sort on. The ParameterId can be found in the Search response. This is only used with SortByParameter.",
+                    "type": "integer",
+                    "example": "0"
+                }
+            }
+        },
+        "ParametricFilter": {
+            "description": "A filter used to refine a keyword search on any parameter.",
+            "required": [
+                "ParameterId",
+                "ValueId"
+            ],
+            "type": "object",
+            "properties": {
+                "ParameterId": {
+                    "format": "int32",
+                    "description": "The parameter identifier.",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648,
+                    "type": "integer",
+                    "example": "1989"
+                },
+                "ValueId": {
+                    "description": "The value identifier.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string",
+                    "example": "0"
+                }
+            }
+        },
+        "KeywordSearchResponse": {
+            "description": "Response model for a keyword search request.",
+            "type": "object",
+            "properties": {
+                "Products": {
+                    "description": "List of products returned by KeywordSearch",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Product"
+                    }
+                },
+                "ProductsCount": {
+                    "format": "int32",
+                    "description": "Total number of matching products found.",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "ExactManufacturerProducts": {
+                    "description": "List of products that are exact ManufacturerPartNumber matches.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/Product"
+                    }
+                },
+                "ExactManufacturerProductsCount": {
+                    "format": "int32",
+                    "description": "Number of exact ManufacturerPartNumber matches.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ExactDigiKeyProduct": {
+                    "$ref": "#\/definitions\/Product",
+                    "description": "Product whose Digi-Key part number exactly matches the input. Note that exact matches are not necessarily on the first page of products. Use this field first if present and populated."
+                },
+                "LimitedTaxonomy": {
+                    "$ref": "#\/definitions\/LimitedTaxonomy",
+                    "description": "The taxonomy limited to products in the response."
+                },
+                "FilterOptions": {
+                    "description": "Available filters for narrowing down results.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/LimitedParameter"
+                    }
+                },
+                "SearchLocaleUsed": {
+                    "$ref": "#\/definitions\/IsoSearchLocale",
+                    "description": "The validated locale that was used for the search. If the provided locale was invalid, this will show the corrections. Currency and Language will be changed if they are not valid options in the provided Site. For example, a Site of DE can use EUR as currency but Site US cannot."
+                }
+            }
+        },
+        "Product": {
+            "description": "Standard information about a product.",
+            "type": "object",
+            "properties": {
+                "DigiKeyPartNumber": {
+                    "description": "The Digi-Key part number.",
+                    "type": "string",
+                    "example": "P5555-ND"
+                },
+                "QuantityAvailable": {
+                    "format": "int32",
+                    "description": "Quantity of the product available for immediate sale.",
+                    "type": "integer",
+                    "example": "22440"
+                },
+                "ManufacturerPartNumber": {
+                    "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for different parts.",
+                    "type": "string",
+                    "example": "ECA-1VHG102"
+                },
+                "Manufacturer": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Name and Id of manufacturer. The Id can be used to filter your search."
+                },
+                "ProductDescription": {
+                    "description": "Catalog description of the product.",
+                    "type": "string",
+                    "example": "CAP ALUM 1000UF 20% 35V RADIAL"
+                },
+                "DetailedDescription": {
+                    "description": "Extended catalog description of the product.",
+                    "type": "string",
+                    "example": "1000µF 35V Aluminum Electrolytic Capacitors Radial, Can  2000 Hrs @ 105°C"
+                },
+                "Packaging": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel (TR), Cut Tape (CT), Digi-Reel, and Bulk."
+                },
+                "MinimumOrderQuantity": {
+                    "format": "int32",
+                    "description": "The minimum quantity to order from Digi-Key.",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "NonStock": {
+                    "description": "Indicates this product is a non stock product.",
+                    "type": "boolean",
+                    "example": "false"
+                },
+                "QuantityOnOrder": {
+                    "format": "int32",
+                    "description": "Quantity of this product ordered but not immediately available.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ManufacturerPublicQuantity": {
+                    "format": "int32",
+                    "description": "Quantity of this product available to order from manufacturer.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "UnitPrice": {
+                    "format": "double",
+                    "description": "The price for a single unit of this product.",
+                    "type": "number",
+                    "example": "0.86"
+                },
+                "StandardPricing": {
+                    "description": "Standard pricing for the validated locale.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/PriceBreak"
+                    }
+                },
+                "TariffDescription": {
+                    "description": "Description of the tariff status. Only applies if purchasing in USD and shipping to the US. Valid options are No Tariff and Tariff Applied.",
+                    "type": "string",
+                    "example": "No Tariff"
+                },
+                "ProductUrl": {
+                    "description": "Full URL of the Digi-Key catalog page to purchase the product. This is based on your provided Locale values.",
+                    "type": "string",
+                    "example": "https:\/\/www.digikey.com\/product-detail\/en\/panasonic-electronic-components\/ECA-1VHG102\/P5555-ND\/245154"
+                },
+                "DateLastBuyChance": {
+                    "format": "date-time",
+                    "description": "Last date that the product will be available for purchase. Date is in ISO 8601.",
+                    "type": "string",
+                    "example": "2019-06-20T17:07:35.797Z"
+                },
+                "Series": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Series of the product."
+                },
+                "ManufacturerPageUrl": {
+                    "description": "The URL to Digi-Key's page on the manufacturer.",
+                    "type": "string",
+                    "example": "https:\/\/www.digikey.com\/en\/supplier-centers\/p\/panasonic"
+                },
+                "ManufacturerLeadWeeks": {
+                    "description": "The number of weeks expected to receive stock from manufacturer.",
+                    "type": "string",
+                    "example": "15 weeks"
+                },
+                "ProductStatus": {
+                    "description": "Status of the product. Options include: Active, Obsolete, Discontinued at Digi-Key, Last Time Buy, Not For New Designs, Preliminary. For obsolete parts the part will become a non-stocking item when stock is depleted; minimums will apply. Order the quantity available or the quantity available plus a multiple of the minimum order quantity.",
+                    "type": "string",
+                    "example": "Active"
+                },
+                "PrimaryDatasheet": {
+                    "description": "The URL to the product's datasheet.",
+                    "type": "string",
+                    "example": "https:\/\/industrial.panasonic.com\/cdbs\/www-data\/pdf\/RDF0000\/ABA0000C1215.pdf"
+                },
+                "PrimaryPhoto": {
+                    "description": "The URL to the product's image.",
+                    "type": "string",
+                    "example": "http:\/\/media.digikey.com\/Photos\/Panasonic%20Photos\/NHG12-SERIES.jpg"
+                },
+                "PrimaryVideo": {
+                    "description": "The URL to the product's video.",
+                    "type": "string",
+                    "example": "https:\/\/www.digikey.com\/api\/videos\/videoplayer\/smallplayer\/5768977450001"
+                },
+                "RoHSStatus": {
+                    "description": "RoHS status. Can be: RoHS Compliant, RoHS non-compliant, RoHS Compliant By Exemption, Not Applicable, Vendor undefined, Request Inventory Verification, ROHS3 Compliant.",
+                    "type": "string",
+                    "example": "RoHS Compliant"
+                },
+                "LeadStatus": {
+                    "description": "Lead status. Can be: Lead Free, Contains lead, Lead Free By Exemption, Not Applicable, Vendor undefined, unknown, or Request Inventory Verification.",
+                    "type": "string",
+                    "example": "Lead Free"
+                },
+                "Parameters": {
+                    "description": "Parameters for the part. Can be used for filtering keyword searches.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/PidVid"
+                    }
+                },
+                "AlternatePackaging": {
+                    "description": "Other packaging types available for this product.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/BasicProduct"
+                    }
+                }
+            }
+        },
+        "LimitedTaxonomy": {
+            "description": "The taxonomy limited to products in the response.",
+            "type": "object",
+            "properties": {
+                "Children": {
+                    "description": "List of taxonomies contained within this taxonomy.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/LimitedTaxonomy"
+                    }
+                },
+                "ProductCount": {
+                    "format": "int32",
+                    "description": "The number of products contained within this taxonomy.",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "NewProductCount": {
+                    "format": "int32",
+                    "description": "The number of new products contained within this taxonomy.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ParameterId": {
+                    "format": "int32",
+                    "description": "The Id of the parameter.",
+                    "type": "integer",
+                    "example": "69"
+                },
+                "ValueId": {
+                    "description": "The Id of the value.",
+                    "type": "string",
+                    "example": "80"
+                },
+                "Parameter": {
+                    "description": "The name of the parameter.",
+                    "type": "string",
+                    "example": "Mounting Type"
+                },
+                "Value": {
+                    "description": "The name of the value.",
+                    "type": "string",
+                    "example": "Through Hole"
+                }
+            }
+        },
+        "LimitedParameter": {
+            "description": "Parameters for filtering that are limited to parameters for the products in the response.",
+            "type": "object",
+            "properties": {
+                "Values": {
+                    "description": "List of values for the parameter that are contained in the products.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/ValuePair"
+                    }
+                },
+                "ParameterId": {
+                    "format": "int32",
+                    "description": "The Id of the parameter.",
+                    "type": "integer",
+                    "example": "1989"
+                },
+                "Parameter": {
+                    "description": "The name of the parameter.",
+                    "type": "string",
+                    "example": "Part Status"
+                }
+            }
+        },
+        "IsoSearchLocale": {
+            "description": "The validated locale that was used for the search. If the provided locale was invalid, this will show the corrections.",
+            "type": "object",
+            "properties": {
+                "Site": {
+                    "description": "The site used for the API call.",
+                    "type": "string",
+                    "example": "US"
+                },
+                "Language": {
+                    "description": "The language used for the API call. If the provided language is not valid for the site, it will be set to the site default.",
+                    "type": "string",
+                    "example": "en"
+                },
+                "Currency": {
+                    "description": "The currency used for the API call. If the provided currency is not valid for the site, it will be set to the site default.",
+                    "type": "string",
+                    "example": "USD"
+                },
+                "ShipToCountry": {
+                    "description": "The destination for shipping the product. This is used for tariffs and regional pricing.",
+                    "type": "string",
+                    "example": "US"
+                }
+            }
+        },
+        "PidVid": {
+            "description": "Combination of a parameter Id and Value Id. Used for filtering search results.",
+            "type": "object",
+            "properties": {
+                "ParameterId": {
+                    "format": "int32",
+                    "description": "The Id of the parameter.",
+                    "type": "integer",
+                    "example": "69"
+                },
+                "ValueId": {
+                    "description": "The Id of the value.",
+                    "type": "string",
+                    "example": "80"
+                },
+                "Parameter": {
+                    "description": "The name of the parameter.",
+                    "type": "string",
+                    "example": "Mounting Type"
+                },
+                "Value": {
+                    "description": "The name of the value.",
+                    "type": "string",
+                    "example": "Through Hole"
+                }
+            }
+        },
+        "PriceBreak": {
+            "description": "PriceBreak of a product. Note that all pricing when keyword searching is cached catalog pricing.",
+            "type": "object",
+            "properties": {
+                "BreakQuantity": {
+                    "format": "int32",
+                    "description": "Price tiers based on the available quantities of the product.",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "UnitPrice": {
+                    "format": "double",
+                    "description": "Price of a single unit of the product at this break.",
+                    "type": "number",
+                    "example": "0.65"
+                },
+                "TotalPrice": {
+                    "format": "double",
+                    "description": "Price of BreakQuantity units of the product.",
+                    "type": "number",
+                    "example": "6.5"
+                }
+            }
+        },
+        "BasicProduct": {
+            "description": "Basic information about a product.",
+            "type": "object",
+            "properties": {
+                "DigiKeyPartNumber": {
+                    "description": "The Digi-Key part number.",
+                    "type": "string",
+                    "example": "P5555-ND"
+                },
+                "QuantityAvailable": {
+                    "format": "int32",
+                    "description": "Quantity of the product available for immediate sale.",
+                    "type": "integer",
+                    "example": "22440"
+                },
+                "ManufacturerPartNumber": {
+                    "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for different parts.",
+                    "type": "string",
+                    "example": "ECA-1VHG102"
+                },
+                "Manufacturer": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Name and Id of manufacturer. The Id can be used to filter your search."
+                },
+                "ProductDescription": {
+                    "description": "Catalog description of the product.",
+                    "type": "string",
+                    "example": "CAP ALUM 1000UF 20% 35V RADIAL"
+                },
+                "Packaging": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel (TR), Cut Tape (CT), Digi-Reel, and Bulk."
+                },
+                "MinimumOrderQuantity": {
+                    "format": "int32",
+                    "description": "The minimum quantity to order from Digi-Key.",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "NonStock": {
+                    "description": "Indicates this product is a non stock product.",
+                    "type": "boolean",
+                    "example": "false"
+                },
+                "QuantityOnOrder": {
+                    "format": "int32",
+                    "description": "Quantity of this product ordered but not immediately available.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ManufacturerPublicQuantity": {
+                    "format": "int32",
+                    "description": "Quantity of this product available to order from manufacturer.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "UnitPrice": {
+                    "format": "double",
+                    "description": "The price for a single unit of this product.",
+                    "type": "number",
+                    "example": "0.86"
+                }
+            }
+        },
+        "ValuePair": {
+            "description": "A value belonging to a parameter.",
+            "type": "object",
+            "properties": {
+                "ValueId": {
+                    "description": "The Id of the value.",
+                    "type": "string",
+                    "example": "0"
+                },
+                "Value": {
+                    "description": "The name of the value.",
+                    "type": "string",
+                    "example": "Active"
+                }
+            }
+        },
+        "ApiErrorResponse": {
+            "description": "Common response model returned for any type of HTTP exception.",
+            "type": "object",
+            "properties": {
+                "ErrorResponseVersion": {
+                    "description": "The version of the error handler.",
+                    "type": "string",
+                    "readOnly": true,
+                    "example": "3.0.0.0"
+                },
+                "StatusCode": {
+                    "format": "int32",
+                    "description": "The HttpStatusCode of the error.",
+                    "type": "integer",
+                    "example": "404"
+                },
+                "ErrorMessage": {
+                    "description": "The message provided by the error handler.",
+                    "type": "string",
+                    "example": "The specified part was not found"
+                },
+                "ErrorDetails": {
+                    "description": "The details of the error.",
+                    "type": "string",
+                    "example": "Part Not Found"
+                },
+                "RequestId": {
+                    "description": "The Id of the request that triggered the error. If contacting API Support, please include the RequestId.",
+                    "type": "string",
+                    "example": "22da819d-9517-4a2c-a8c1-0195ea2e7878"
+                },
+                "ValidationErrors": {
+                    "description": "The list of validation errors (if applicable).",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/ApiValidationError"
+                    }
+                }
+            }
+        },
+        "ApiValidationError": {
+            "description": "Error with API input.",
+            "type": "object",
+            "properties": {
+                "Field": {
+                    "description": "The field that generated the error.",
+                    "type": "string",
+                    "readOnly": true,
+                    "example": "Keywords"
+                },
+                "Message": {
+                    "description": "The error message that was generated. This often explains how to fix your API input to be valid.",
+                    "type": "string",
+                    "readOnly": true,
+                    "example": "The Keywords field is required."
+                }
+            }
+        },
+        "ProductDetails": {
+            "description": "All information about a product.",
+            "type": "object",
+            "properties": {
+                "DigiKeyPartNumber": {
+                    "description": "The Digi-Key part number.",
+                    "type": "string",
+                    "example": "P5555-ND"
+                },
+                "QuantityAvailable": {
+                    "format": "int32",
+                    "description": "Quantity of the product available for immediate sale.",
+                    "type": "integer",
+                    "example": "22440"
+                },
+                "ManufacturerPartNumber": {
+                    "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for different parts.",
+                    "type": "string",
+                    "example": "ECA-1VHG102"
+                },
+                "Manufacturer": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Name and Id of manufacturer. The Id can be used to filter your search."
+                },
+                "ProductDescription": {
+                    "description": "Catalog description of the product.",
+                    "type": "string",
+                    "example": "CAP ALUM 1000UF 20% 35V RADIAL"
+                },
+                "DetailedDescription": {
+                    "description": "Extended catalog description of the product.",
+                    "type": "string",
+                    "example": "1000µF 35V Aluminum Electrolytic Capacitors Radial, Can  2000 Hrs @ 105°C"
+                },
+                "Packaging": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel (TR), Cut Tape (CT), Digi-Reel, and Bulk."
+                },
+                "MinimumOrderQuantity": {
+                    "format": "int32",
+                    "description": "The minimum quantity to order from Digi-Key.",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "NonStock": {
+                    "description": "Indicates this product is a non stock product.",
+                    "type": "boolean",
+                    "example": "false"
+                },
+                "QuantityOnOrder": {
+                    "format": "int32",
+                    "description": "Quantity of this product ordered but not immediately available.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ManufacturerPublicQuantity": {
+                    "format": "int32",
+                    "description": "Quantity of this product available to order from manufacturer.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "UnitPrice": {
+                    "format": "double",
+                    "description": "The price for a single unit of this product.",
+                    "type": "number",
+                    "example": "0.86"
+                },
+                "StandardPricing": {
+                    "description": "Standard pricing for the validated locale.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/PriceBreak"
+                    }
+                },
+                "MyPricing": {
+                    "description": "Your pricing for the account with which you authenticated. Also dependent on locale information.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/PriceBreak"
+                    }
+                },
+                "AdditionalValueFee": {
+                    "format": "double",
+                    "description": "Any additional value fee. Most commonly the Digi-Reel fee. May be used for programmable parts as well.",
+                    "type": "number",
+                    "example": "0"
+                },
+                "TariffDescription": {
+                    "description": "Description of the tariff status. Only applies if purchasing in USD and shipping to the US. Valid options are No Tariff and Tariff Applied.",
+                    "type": "string",
+                    "example": "No Tariff"
+                },
+                "ProductUrl": {
+                    "description": "Full URL of the Digi-Key catalog page to purchase the product. This is based on your provided Locale values.",
+                    "type": "string",
+                    "example": "https:\/\/www.digikey.com\/product-detail\/en\/panasonic-electronic-components\/ECA-1VHG102\/P5555-ND\/245154"
+                },
+                "DateLastBuyChance": {
+                    "format": "date-time",
+                    "description": "Last date that the product will be available for purchase. Date is in ISO 8601.",
+                    "type": "string",
+                    "example": "2019-06-20T17:07:35.797Z"
+                },
+                "Series": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Series of the product."
+                },
+                "ManufacturerPageUrl": {
+                    "description": "The URL to Digi-Key's page on the manufacturer.",
+                    "type": "string",
+                    "example": "https:\/\/www.digikey.com\/en\/supplier-centers\/p\/panasonic"
+                },
+                "Obsolete": {
+                    "description": "Indicates whether this Part is obsolete.",
+                    "type": "boolean",
+                    "example": "false"
+                },
+                "ManufacturerLeadWeeks": {
+                    "description": "The number of weeks expected to receive stock from manufacturer.",
+                    "type": "string",
+                    "example": "15 weeks"
+                },
+                "ProductStatus": {
+                    "description": "Status of the product. Options include: Active, Obsolete, Discontinued at Digi-Key, Last Time Buy, Not For New Designs, Preliminary. For obsolete parts the part will become a non-stocking item when stock is depleted; minimums will apply. Order the quantity available or the quantity available plus a multiple of the minimum order quantity.",
+                    "type": "string",
+                    "example": "Active"
+                },
+                "StandardPackage": {
+                    "format": "int32",
+                    "description": "The number of products in the manufacturer's standard package.",
+                    "type": "integer",
+                    "example": "200"
+                },
+                "MediaLinks": {
+                    "description": "Collection of MediaLinks objects. These can contain links to datasheets, photos or manuals.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/MediaLinks"
+                    }
+                },
+                "PrimaryDatasheet": {
+                    "description": "The URL to the product's datasheet.",
+                    "type": "string",
+                    "example": "https:\/\/industrial.panasonic.com\/cdbs\/www-data\/pdf\/RDF0000\/ABA0000C1215.pdf"
+                },
+                "PrimaryPhoto": {
+                    "description": "The URL to the product's image.",
+                    "type": "string",
+                    "example": "http:\/\/media.digikey.com\/Photos\/Panasonic%20Photos\/NHG12-SERIES.jpg"
+                },
+                "PrimaryVideo": {
+                    "description": "The URL to the product's video.",
+                    "type": "string",
+                    "example": "https:\/\/www.digikey.com\/api\/videos\/videoplayer\/smallplayer\/5768977450001"
+                },
+                "RoHSStatus": {
+                    "description": "RoHS status. Can be: RoHS Compliant, RoHS non-compliant, RoHS Compliant By Exemption, Not Applicable, Vendor undefined, Request Inventory Verification, ROHS3 Compliant.",
+                    "type": "string",
+                    "example": "RoHS Compliant"
+                },
+                "LeadStatus": {
+                    "description": "Lead status. Can be: Lead Free, Contains lead, Lead Free By Exemption, Not Applicable, Vendor undefined, unknown, or Request Inventory Verification.",
+                    "type": "string",
+                    "example": "Lead Free"
+                },
+                "Parameters": {
+                    "description": "Parameters for the part. Can be used for filtering keyword searches.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/PidVid"
+                    }
+                },
+                "Kits": {
+                    "description": "Kits that this product is contained in.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/AssociatedProduct"
+                    }
+                },
+                "KitContents": {
+                    "description": "Products contained within this product. Only applicable if this product is a kit.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/KitPart"
+                    }
+                },
+                "MatingProducts": {
+                    "description": "An association of same manufacturer products that mate with each other.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/AssociatedProduct"
+                    }
+                },
+                "AssociatedProducts": {
+                    "description": "Products that are directly correlated to complete the intended function of the product. These products may be either same manufacturer or differ.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/AssociatedProduct"
+                    }
+                },
+                "ForUseWithProducts": {
+                    "description": "Products that are directly correlated to complete the intended function of the product. These products may be either same manufacturer or differ.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/AssociatedProduct"
+                    }
+                },
+                "RohsSubs": {
+                    "description": "Rohs substitutions",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/AssociatedProduct"
+                    }
+                },
+                "SuggestedSubs": {
+                    "description": "Suggested substitutions for when the product is obsolete.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/AssociatedProduct"
+                    }
+                },
+                "AlternatePackaging": {
+                    "description": "Other packaging types available for this product.",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#\/definitions\/BasicProduct"
+                    }
+                },
+                "LimitedTaxonomy": {
+                    "$ref": "#\/definitions\/LimitedTaxonomy",
+                    "description": "Limited taxonomy structure for this product."
+                },
+                "SearchLocaleUsed": {
+                    "$ref": "#\/definitions\/IsoSearchLocale",
+                    "description": "The validated locale that was used for the search. If the provided locale was invalid, this will show the corrections. Currency and Language will be changed if they are not valid options in the provided Site. For example, a Site of DE can use EUR as currency but Site US cannot."
+                }
+            }
+        },
+        "MediaLinks": {
+            "description": "Media links for a product.",
+            "type": "object",
+            "properties": {
+                "MediaType": {
+                    "description": "The type of media.",
+                    "type": "string",
+                    "example": "Product Photos"
+                },
+                "Title": {
+                    "description": "The title of the media.",
+                    "type": "string",
+                    "example": "NHG12-SERIES"
+                },
+                "SmallPhoto": {
+                    "description": "URL to a small photo.",
+                    "type": "string",
+                    "example": "http:\/\/media.digikey.com\/Photos\/Panasonic%20Photos\/NHG12-SERIES_sml.jpg"
+                },
+                "Thumbnail": {
+                    "description": "URL to the thumbnail image of the media.",
+                    "type": "string",
+                    "example": "http:\/\/media.digikey.com\/Photos\/Panasonic%20Photos\/NHG12-SERIES_tmb.jpg"
+                },
+                "Url": {
+                    "description": "URL of the media.",
+                    "type": "string",
+                    "example": "http:\/\/media.digikey.com\/Photos\/Panasonic%20Photos\/NHG12-SERIES.jpg"
+                }
+            }
+        },
+        "AssociatedProduct": {
+            "description": "A limited product model used for associated products.",
+            "type": "object",
+            "properties": {
+                "DigiKeyPartNumber": {
+                    "description": "The Digi-Key part number.",
+                    "type": "string",
+                    "example": "P5555-ND"
+                },
+                "QuantityAvailable": {
+                    "format": "int32",
+                    "description": "Quantity of the product available for immediate sale.",
+                    "type": "integer",
+                    "example": "22440"
+                },
+                "ManufacturerPartNumber": {
+                    "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for different parts.",
+                    "type": "string",
+                    "example": "ECA-1VHG102"
+                },
+                "Manufacturer": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Name and Id of manufacturer. The Id can be used to filter your search."
+                },
+                "ProductDescription": {
+                    "description": "Catalog description of the product.",
+                    "type": "string",
+                    "example": "CAP ALUM 1000UF 20% 35V RADIAL"
+                },
+                "Packaging": {
+                    "$ref": "#\/definitions\/PidVid",
+                    "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel (TR), Cut Tape (CT), Digi-Reel, and Bulk."
+                },
+                "MinimumOrderQuantity": {
+                    "format": "int32",
+                    "description": "The minimum quantity to order from Digi-Key.",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "NonStock": {
+                    "description": "Indicates this product is a non stock product.",
+                    "type": "boolean",
+                    "example": "false"
+                },
+                "QuantityOnOrder": {
+                    "format": "int32",
+                    "description": "Quantity of this product ordered but not immediately available.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ManufacturerPublicQuantity": {
+                    "format": "int32",
+                    "description": "Quantity of this product available to order from manufacturer.",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "UnitPrice": {
+                    "format": "double",
+                    "description": "The price for a single unit of this product.",
+                    "type": "number",
+                    "example": "0.86"
+                },
+                "ProductUrl": {
+                    "description": "Full URL of the Digi-Key catalog page to purchase the product. This is based on your provided Locale values.",
+                    "type": "string",
+                    "example": "https:\/\/www.digikey.com\/product-detail\/en\/omron-automation-and-safety\/NB-CN001\/Z9825-ND\/3474837"
+                }
+            }
+        },
+        "KitPart": {
+            "description": "Product contained within a Kit.",
+            "type": "object",
+            "properties": {
+                "AssociatedProduct": {
+                    "$ref": "#\/definitions\/AssociatedProduct",
+                    "description": "Product in the Kit."
+                },
+                "KitPartQuantity": {
+                    "format": "int32",
+                    "description": "Number of the product in the Kit.",
+                    "type": "integer",
+                    "example": "5"
+                }
+            }
+        },
+        "DigiReelPricing": {
+            "description": "Response for Digi-Reel Pricing Request",
+            "type": "object",
+            "properties": {
+                "ReelingFee": {
+                    "format": "double",
+                    "description": "Fee per reel ordered.",
+                    "type": "number",
+                    "example": "7"
+                },
+                "UnitPrice": {
+                    "format": "double",
+                    "description": "Price of a single unit of the product.",
+                    "type": "number",
+                    "example": "0.01704"
+                },
+                "ExtendedPrice": {
+                    "format": "double",
+                    "description": "The total price of the requested reels and the reeling fee.",
+                    "type": "number",
+                    "example": "8.52"
+                },
+                "RequestedQuantity": {
+                    "format": "int32",
+                    "description": "The passed in quantity of the product you are looking to create a Digi-Reel with.",
+                    "type": "integer",
+                    "example": "500"
+                },
+                "SearchLocaleUsed": {
+                    "$ref": "#\/definitions\/IsoSearchLocale",
+                    "description": "The validated locale that was used for the product lookup. If the provided locale was invalid, this will show the corrections. Currency and Language will be changed if they are not valid options in the provided Site."
+                }
+            }
+        }
+    },
+    "tags": []
+}

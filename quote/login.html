@@ -1,0 +1,71 @@
+<?php
+$username = null;
+$password = null;
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    echo "here";
+ }
+
+?>
+<!DOCTYPE html>
+<html>
+    
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+        <title>Login - Selectricom Administration</title>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="images/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="images/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="images/style.css">
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    <body>
+        <div class="main-wrapper">
+			<div class="account-page">
+				<div class="container">
+					<h3 class="account-title">Login</h3>
+					<div class="account-box">
+						<div class="account-wrapper">
+							<div class="account-logo">
+								<a href="index.html"><img src="images/selectricom-logo.jpg" alt="Focus Technologies"></a>
+							</div>
+							<form method="get" action="index.html" >
+								<div class="form-group form-focus">
+									<label class="control-label">Username or Email</label>
+									<input id="email" name="email" class="form-control floating" type="text">
+								</div>
+								<div class="form-group form-focus">
+									<label class="control-label">Password</label>
+									<input id="password" name="password" class="form-control floating" type="password">
+								</div>
+								<div class="form-group text-center">
+									<button class="btn btn-primary btn-block account-btn" type="submit">Login</button>
+								</div>
+								<div class="text-center">
+									<a href="forgot-password.html">Forgot your password?</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+		<div class="sidebar-overlay" data-reff="#sidebar"></div>
+        <script type="text/javascript" src="images/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="images/bootstrap.min.js"></script>
+		<script type="text/javascript" src="images/app.js"></script>
+		<script src="js/selctricom.js"></script>
+		<script src="js/common.js"></script>
+		<script>
+		$("document").ready(function(){
+			
+		})
+		</script>
+    </body>
+</html>

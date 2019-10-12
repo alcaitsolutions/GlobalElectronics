@@ -1,0 +1,497 @@
+                                   {
+  "Parts": [
+    {
+      "StandardPricing": [
+        {
+          "BreakQuantity": "10",
+          "UnitPrice": 0.623,
+          "TotalPrice": 6.23
+        }
+      ],
+      "MyPricing": [
+        {
+          "BreakQuantity": "10",
+          "UnitPrice": 0.623,
+          "TotalPrice": 6.23
+        }
+      ],
+      "Category": {
+        "Id": "8818097043537920",
+        "Text": "wurice"
+      },
+      "ChipOutpostPart": "false",
+      "RohsInfo": "RoHS Compliant",
+      "LeadStatus": "Lead Free",
+      "Family": {
+        "Id": "1120926414405632",
+        "Text": "ikit"
+      },
+      "Parameters": [
+        {
+          "ParameterId": "1500",
+          "ValueId": "273",
+          "Parameter": "Height - Seated (Max)",
+          "Value": "0.866\\\" (22.00mm)"
+        }
+      ],
+      "PartUrl": "/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+      "BuyUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+      "PrimaryDatasheet": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1215.pdf",
+      "PrimaryPhoto": "http://media.digikey.com/Photos/Panasonic%20Photos/NHG12-SERIES.jpg",
+      "PrimaryVideo": "5292729923796992",
+      "RohsSubs": [
+        {
+          "Description": "Na jahaf isezo iv om ab duri ca niseh ajo rot taka cehlipuk ih gecis.",
+          "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+          "ManufacturerPartNumber": "ECA-1VHG102",
+          "MinimumOrderQuantity": "1",
+          "NonStock": "false",
+          "Packaging": {
+            "ParameterId": "1500",
+            "ValueId": "273",
+            "Parameter": "Height - Seated (Max)",
+            "Value": "0.866\\\" (22.00mm)"
+          },
+          "PartId": "245154",
+          "QuantityOnHand": "861",
+          "DigiKeyPartNumber": "P5555-ND",
+          "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+          "UnitPrice": 0.82,
+          "ManufacturerName": {
+            "Id": "2331782034751488",
+            "Text": "fadab"
+          },
+          "ManfacturerPublicQuantity": "0"
+        }
+      ],
+      "Series": {
+        "ParameterId": "1500",
+        "ValueId": "273",
+        "Parameter": "Height - Seated (Max)",
+        "Value": "0.866\\\" (22.00mm)"
+      },
+      "SuggestedSubs": [
+        {
+          "Description": "Ru in holha mag gucaf nidka lazo ihalafzoj manisuzat keva jagkuni osudap sicvebef watec.",
+          "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+          "ManufacturerPartNumber": "ECA-1VHG102",
+          "MinimumOrderQuantity": "1",
+          "NonStock": "false",
+          "Packaging": {
+            "ParameterId": "1500",
+            "ValueId": "273",
+            "Parameter": "Height - Seated (Max)",
+            "Value": "0.866\\\" (22.00mm)"
+          },
+          "PartId": "245154",
+          "QuantityOnHand": "861",
+          "DigiKeyPartNumber": "P5555-ND",
+          "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+          "UnitPrice": 0.82,
+          "ManufacturerName": {
+            "Id": "687959019880448",
+            "Text": "najwunam"
+          },
+          "ManfacturerPublicQuantity": "0"
+        }
+      ],
+      "ManufacturerLeadWeeks": "15 weeks",
+      "ManufacturerPageUrl": "/en/supplier-centers/p/panasonic",
+      "PartStatus": "Active",
+      "AlternatePackaging": [
+        {
+          "Description": "Guwutda homsiwa alo fujidpap po riker da nid niz kicucfup du fazoh tukgobal gigel.",
+          "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+          "ManufacturerPartNumber": "ECA-1VHG102",
+          "MinimumOrderQuantity": "1",
+          "NonStock": "false",
+          "Packaging": {
+            "ParameterId": "1500",
+            "ValueId": "273",
+            "Parameter": "Height - Seated (Max)",
+            "Value": "0.866\\\" (22.00mm)"
+          },
+          "PartId": "245154",
+          "QuantityOnHand": "861",
+          "DigiKeyPartNumber": "P5555-ND",
+          "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+          "UnitPrice": 0.82,
+          "ManufacturerName": {
+            "Id": "6712406436741120",
+            "Text": "sieki"
+          },
+          "ManfacturerPublicQuantity": "0"
+        }
+      ],
+      "DetailedDescription": "1000µF 35V Aluminum Electrolytic Capacitors Radial, Can 2000 Hrs @ 105°C",
+      "TariffDescription": "Tariff Eligible",
+      "ManufacturerPartNumber": "ECA-1VHG102",
+      "MinimumOrderQuantity": "1",
+      "NonStock": "false",
+      "Packaging": {
+        "ParameterId": "1500",
+        "ValueId": "273",
+        "Parameter": "Height - Seated (Max)",
+        "Value": "0.866\\\" (22.00mm)"
+      },
+      "PartId": "245154",
+      "QuantityOnHand": "861",
+      "DigiKeyPartNumber": "P5555-ND",
+      "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+      "UnitPrice": 0.82,
+      "ManufacturerName": {
+        "Id": "4221913517785088",
+        "Text": "tahniria"
+      },
+      "ManfacturerPublicQuantity": "0"
+    }
+  ],
+  "Taxonomy": {
+    "Children": [
+      {
+        "Children": {
+          "circular_reference": "#/definitions/LimitedTaxonomy"
+        },
+        "PartCount": "1",
+        "NewPartCount": "0",
+        "ParameterId": "-8",
+        "ValueId": "58",
+        "Parameter": "Categories",
+        "Value": "Aluminum Electrolytic Capacitors"
+      }
+    ],
+    "PartCount": "1",
+    "NewPartCount": "0",
+    "ParameterId": "-8",
+    "ValueId": "58",
+    "Parameter": "Categories",
+    "Value": "Aluminum Electrolytic Capacitors"
+  },
+  "LimitedCategories": [
+    {
+      "Id": "2",
+      "Category": "Capacitors",
+      "Families": [
+        {
+          "Id": "11",
+          "Name": "Ceramic Capacitors",
+          "PartCount": "1"
+        }
+      ]
+    }
+  ],
+  "FilterValues": [
+    {
+      "ParameterId": "1500",
+      "ValueId": "273",
+      "Parameter": "Height - Seated (Max)",
+      "Value": "0.866\\\" (22.00mm)"
+    }
+  ],
+  "LimitedFilterValues": [
+    {
+      "Values": [
+        {
+          "Vid": "273",
+          "Value": "0.866\\\" (22.00mm)"
+        }
+      ],
+      "Pid": "-1",
+      "Parameter": "Manufacturer"
+    }
+  ],
+  "Results": "20",
+  "ExactMatches": "1",
+  "ExactParts": [
+    {
+      "StandardPricing": [
+        {
+          "BreakQuantity": "10",
+          "UnitPrice": 0.623,
+          "TotalPrice": 6.23
+        }
+      ],
+      "MyPricing": [
+        {
+          "BreakQuantity": "10",
+          "UnitPrice": 0.623,
+          "TotalPrice": 6.23
+        }
+      ],
+      "Category": {
+        "Id": "642715385593856",
+        "Text": "bataw"
+      },
+      "ChipOutpostPart": "false",
+      "RohsInfo": "RoHS Compliant",
+      "LeadStatus": "Lead Free",
+      "Family": {
+        "Id": "3409166557249536",
+        "Text": "novowj"
+      },
+      "Parameters": [
+        {
+          "ParameterId": "1500",
+          "ValueId": "273",
+          "Parameter": "Height - Seated (Max)",
+          "Value": "0.866\\\" (22.00mm)"
+        }
+      ],
+      "PartUrl": "/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+      "BuyUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+      "PrimaryDatasheet": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1215.pdf",
+      "PrimaryPhoto": "http://media.digikey.com/Photos/Panasonic%20Photos/NHG12-SERIES.jpg",
+      "PrimaryVideo": "1648773545590784",
+      "RohsSubs": [
+        {
+          "Description": "Puekfu liw hidviufo gajgit lak hokal bivajo vifsa eba wuci jucomja behjenebo osi pujmibza mo.",
+          "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+          "ManufacturerPartNumber": "ECA-1VHG102",
+          "MinimumOrderQuantity": "1",
+          "NonStock": "false",
+          "Packaging": {
+            "ParameterId": "1500",
+            "ValueId": "273",
+            "Parameter": "Height - Seated (Max)",
+            "Value": "0.866\\\" (22.00mm)"
+          },
+          "PartId": "245154",
+          "QuantityOnHand": "861",
+          "DigiKeyPartNumber": "P5555-ND",
+          "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+          "UnitPrice": 0.82,
+          "ManufacturerName": {
+            "Id": "2003174839812096",
+            "Text": "rijujar"
+          },
+          "ManfacturerPublicQuantity": "0"
+        }
+      ],
+      "Series": {
+        "ParameterId": "1500",
+        "ValueId": "273",
+        "Parameter": "Height - Seated (Max)",
+        "Value": "0.866\\\" (22.00mm)"
+      },
+      "SuggestedSubs": [
+        {
+          "Description": "Esudgik niv caurwe ujfa hawbedej nosi manusig zevzeduca ihut mobfem luw fujgamefe.",
+          "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+          "ManufacturerPartNumber": "ECA-1VHG102",
+          "MinimumOrderQuantity": "1",
+          "NonStock": "false",
+          "Packaging": {
+            "ParameterId": "1500",
+            "ValueId": "273",
+            "Parameter": "Height - Seated (Max)",
+            "Value": "0.866\\\" (22.00mm)"
+          },
+          "PartId": "245154",
+          "QuantityOnHand": "861",
+          "DigiKeyPartNumber": "P5555-ND",
+          "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+          "UnitPrice": 0.82,
+          "ManufacturerName": {
+            "Id": "1324296169324544",
+            "Text": "zeresak"
+          },
+          "ManfacturerPublicQuantity": "0"
+        }
+      ],
+      "ManufacturerLeadWeeks": "15 weeks",
+      "ManufacturerPageUrl": "/en/supplier-centers/p/panasonic",
+      "PartStatus": "Active",
+      "AlternatePackaging": [
+        {
+          "Description": "Kajwo eseteri ewa lu zom fubedsi jegug ujinuw datip ekocan jidupgi vol tafuud up re ce uwanev.",
+          "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+          "ManufacturerPartNumber": "ECA-1VHG102",
+          "MinimumOrderQuantity": "1",
+          "NonStock": "false",
+          "Packaging": {
+            "ParameterId": "1500",
+            "ValueId": "273",
+            "Parameter": "Height - Seated (Max)",
+            "Value": "0.866\\\" (22.00mm)"
+          },
+          "PartId": "245154",
+          "QuantityOnHand": "861",
+          "DigiKeyPartNumber": "P5555-ND",
+          "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+          "UnitPrice": 0.82,
+          "ManufacturerName": {
+            "Id": "6586354110562304",
+            "Text": "rakofehm"
+          },
+          "ManfacturerPublicQuantity": "0"
+        }
+      ],
+      "DetailedDescription": "1000µF 35V Aluminum Electrolytic Capacitors Radial, Can 2000 Hrs @ 105°C",
+      "TariffDescription": "Tariff Eligible",
+      "ManufacturerPartNumber": "ECA-1VHG102",
+      "MinimumOrderQuantity": "1",
+      "NonStock": "false",
+      "Packaging": {
+        "ParameterId": "1500",
+        "ValueId": "273",
+        "Parameter": "Height - Seated (Max)",
+        "Value": "0.866\\\" (22.00mm)"
+      },
+      "PartId": "245154",
+      "QuantityOnHand": "861",
+      "DigiKeyPartNumber": "P5555-ND",
+      "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+      "UnitPrice": 0.82,
+      "ManufacturerName": {
+        "Id": "1512198641811456",
+        "Text": "ziejima"
+      },
+      "ManfacturerPublicQuantity": "0"
+    }
+  ],
+  "ExactDigiKeyPart": {
+    "StandardPricing": [
+      {
+        "BreakQuantity": "10",
+        "UnitPrice": 0.623,
+        "TotalPrice": 6.23
+      }
+    ],
+    "MyPricing": [
+      {
+        "BreakQuantity": "10",
+        "UnitPrice": 0.623,
+        "TotalPrice": 6.23
+      }
+    ],
+    "Category": {
+      "Id": "2922695056424960",
+      "Text": "wulem"
+    },
+    "ChipOutpostPart": "false",
+    "RohsInfo": "RoHS Compliant",
+    "LeadStatus": "Lead Free",
+    "Family": {
+      "Id": "7636305643044864",
+      "Text": "wudc"
+    },
+    "Parameters": [
+      {
+        "ParameterId": "1500",
+        "ValueId": "273",
+        "Parameter": "Height - Seated (Max)",
+        "Value": "0.866\\\" (22.00mm)"
+      }
+    ],
+    "PartUrl": "/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+    "BuyUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+    "PrimaryDatasheet": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1215.pdf",
+    "PrimaryPhoto": "http://media.digikey.com/Photos/Panasonic%20Photos/NHG12-SERIES.jpg",
+    "PrimaryVideo": "6312224175947776",
+    "RohsSubs": [
+      {
+        "Description": "Beororo epufadidi get civupe soburu rienpuk duw muzrev kew ditborufo co ewgik kubez.",
+        "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+        "ManufacturerPartNumber": "ECA-1VHG102",
+        "MinimumOrderQuantity": "1",
+        "NonStock": "false",
+        "Packaging": {
+          "ParameterId": "1500",
+          "ValueId": "273",
+          "Parameter": "Height - Seated (Max)",
+          "Value": "0.866\\\" (22.00mm)"
+        },
+        "PartId": "245154",
+        "QuantityOnHand": "861",
+        "DigiKeyPartNumber": "P5555-ND",
+        "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+        "UnitPrice": 0.82,
+        "ManufacturerName": {
+          "Id": "8667337360146432",
+          "Text": "belgemo"
+        },
+        "ManfacturerPublicQuantity": "0"
+      }
+    ],
+    "Series": {
+      "ParameterId": "1500",
+      "ValueId": "273",
+      "Parameter": "Height - Seated (Max)",
+      "Value": "0.866\\\" (22.00mm)"
+    },
+    "SuggestedSubs": [
+      {
+        "Description": "Peeno iluelbi itu pejbeta zededke kemuv etkigwov nimu ho wov hitezju bib azu higezduf diiwo oce zoje boroat.",
+        "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+        "ManufacturerPartNumber": "ECA-1VHG102",
+        "MinimumOrderQuantity": "1",
+        "NonStock": "false",
+        "Packaging": {
+          "ParameterId": "1500",
+          "ValueId": "273",
+          "Parameter": "Height - Seated (Max)",
+          "Value": "0.866\\\" (22.00mm)"
+        },
+        "PartId": "245154",
+        "QuantityOnHand": "861",
+        "DigiKeyPartNumber": "P5555-ND",
+        "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+        "UnitPrice": 0.82,
+        "ManufacturerName": {
+          "Id": "5486263131963392",
+          "Text": "ficirk"
+        },
+        "ManfacturerPublicQuantity": "0"
+      }
+    ],
+    "ManufacturerLeadWeeks": "15 weeks",
+    "ManufacturerPageUrl": "/en/supplier-centers/p/panasonic",
+    "PartStatus": "Active",
+    "AlternatePackaging": [
+      {
+        "Description": "Esunak zakez mu ceh sucfuzvib ledzikcit cunva rihba sa jej vum daez vancet.",
+        "PartUrl": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ECA-1VHG102/P5555-ND/245154",
+        "ManufacturerPartNumber": "ECA-1VHG102",
+        "MinimumOrderQuantity": "1",
+        "NonStock": "false",
+        "Packaging": {
+          "ParameterId": "1500",
+          "ValueId": "273",
+          "Parameter": "Height - Seated (Max)",
+          "Value": "0.866\\\" (22.00mm)"
+        },
+        "PartId": "245154",
+        "QuantityOnHand": "861",
+        "DigiKeyPartNumber": "P5555-ND",
+        "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+        "UnitPrice": 0.82,
+        "ManufacturerName": {
+          "Id": "5421372553560064",
+          "Text": "ceziw"
+        },
+        "ManfacturerPublicQuantity": "0"
+      }
+    ],
+    "DetailedDescription": "1000µF 35V Aluminum Electrolytic Capacitors Radial, Can 2000 Hrs @ 105°C",
+    "TariffDescription": "Tariff Eligible",
+    "ManufacturerPartNumber": "ECA-1VHG102",
+    "MinimumOrderQuantity": "1",
+    "NonStock": "false",
+    "Packaging": {
+      "ParameterId": "1500",
+      "ValueId": "273",
+      "Parameter": "Height - Seated (Max)",
+      "Value": "0.866\\\" (22.00mm)"
+    },
+    "PartId": "245154",
+    "QuantityOnHand": "861",
+    "DigiKeyPartNumber": "P5555-ND",
+    "ProductDescription": "CAP ALUM 1000UF 20% 35V RADIAL",
+    "UnitPrice": 0.82,
+    "ManufacturerName": {
+      "Id": "188416169869312",
+      "Text": "juhv"
+    },
+    "ManfacturerPublicQuantity": "0"
+  }
+}

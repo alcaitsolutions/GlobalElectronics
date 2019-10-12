@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Global Electronics, LLC - Electronics Distributor</title>
+	<!-- Stylesheets -->
+	<link href="images/bootstrap.css" rel="stylesheet">
+
+	<link href="images/style.css" rel="stylesheet">
+	<link href="images/slick.css" rel="stylesheet">
+	<link href="images/responsive.css" rel="stylesheet">
+	<link href="css/select2.min.css" rel="stylesheet">
+
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+	<!-- Responsive -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+	<!-- SELECT 2 - CUSTOM SELECT DROP DOWN -->
+<style>
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 2000;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  color: black;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(0, 255, 255); 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #080808; 
+}</style>
+
+</head>
+
+<body>
+
+	<div class="page-wrapper">
+
+		<!-- Preloader -->
+		<div class="preloader"></div>
+
+		<!-- Main Header-->
+		<header class="main-header header-style-three">
+
+			<!--Header Top Three-->
+			<div class="header-top-three">
+				<div class="auto-container">
+					<div class="inner-container clearfix">
+						<!--Top Left-->
+						<div class="top-left">
+							<ul class="header-info-list">
+								<li><span class="icon flaticon-telephone-handle-silhouette"></span>Phone: 813-256-2500
+								</li>
+								<li><span class="icon fa fa-envelope"></span>adamesluis@gmail.com</li>
+							</ul>
+						</div>
+						<!--Top Right-->
+						<div class="top-right">
+							<!--Social Box-->
+							<ul class="social-box">
+								<li class="share">Connect With Us</li>
+								<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+								<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+								<li><a href="#"><span class="fa fa-vimeo"></span></a></li>
+								<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+								<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--Header-Upper-->
+			<div class="header-upper">
+				<div class="auto-container">
+					<div class="clearfix">
+
+						<div class="pull-left logo-box">
+							<div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+						</div>
+
+						<div class="nav-outer clearfix">
+
+							<!-- Main Menu -->
+							<nav class="main-menu navbar-expand-md">
+								<div class="navbar-header">
+									<button class="navbar-toggler" type="button" data-toggle="collapse"
+										data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+										aria-expanded="false" aria-label="Toggle navigation">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+
+								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+									<ul class="navigation clearfix">
+										<li class="current dropdown"><a href="index.html">Home</a>
+
+										</li>
+										<li class="dropdown"><a href="#">About</a>
+											<ul>
+												<li><a href="about.html">About Us</a></li>
+												<li><a href="values.html">Our Values</a></li>
+											</ul>
+										</li>
+										<li class="dropdown"><a href="#">Services</a>
+											<ul>
+												<li><a href="quote.html">Get A Quote</a></li>
+												<li><a href="line-card.html">Line Card</a></li>
+												<li><a href="bom.html">Upload BOM</a></li>
+
+											</ul>
+										</li>
+										<li class="dropdown"><a href="#">Products</a>
+											<ul>
+												<li><a href="categories.html">Product Categories</a></li>
+												<li><a href="suppliers.html">Suppliers</a></li>
+
+											</ul>
+										</li>
+										<li class="dropdown"><a href="#">Resources</a>
+											<ul>
+												<li><a href="articles.html">Articles</a></li>
+
+											</ul>
+										</li>
+										<li><a href="contact.html">Contact us</a></li>
+									</ul>
+								</div>
+
+							</nav>
+
+							<!--Button Box-->
+							<div class="button-box">
+								<a href="quote.html" class="theme-btn btn-style-one">Get A Quote</a>
+							</div>
+
+							<!--Search Box Outer-->
+							<div class="search-box-outer">
+								<div class="dropdown">
+									<button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu3"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+											class="fa fa-search"></span></button>
+									<ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
+										<li class="panel-outer">
+											<div class="form-container">
+												<form method="post" action="">
+													<div class="form-group">
+														<input type="search" name="field-name" value=""
+															placeholder="Search Here" required>
+														<button type="submit" class="search-btn"><span
+																class="fa fa-search"></span></button>
+													</div>
+												</form>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--End Header Upper-->
+
+			<!--Sticky Header-->
+			<div class="sticky-header">
+				<div class="auto-container clearfix">
+					<!--Logo-->
+					<div class="logo pull-left">
+						<a href="index.html" class="img-responsive"><img src="images/logo-small.png" alt=""
+								title=""></a>
+					</div>
+
+					<!--Right Col-->
+					<div class="right-col pull-right">
+						<!-- Main Menu -->
+						<nav class="main-menu navbar-expand-md">
+							<button class="navbar-toggler" type="button" data-toggle="collapse"
+								data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+								aria-expanded="false" aria-label="Toggle navigation">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+								<ul class="navigation clearfix">
+									<li class="current dropdown"><a href="index.html">Home</a>
+
+									</li>
+									<li class="dropdown"><a href="#">About</a>
+										<ul>
+											<li><a href="about.html">About Us</a></li>
+											<li><a href="values.html">Our Values</a></li>
+										</ul>
+									</li>
+									<li class="dropdown"><a href="#">Services</a>
+									<li class="dropdown"><a href="#">Services</a>
+										<ul>
+											<li><a href="quote.html">Get A Quote</a></li>
+											<li><a href="line-card.html">Line Card</a></li>
+											<li><a href="bom.html">Upload BOM</a></li>
+
+										</ul>
+									</li>
+									<li class="dropdown"><a href="#">Products</a>
+										<ul>
+											<li><a href="categories.html">Product Categories</a></li>
+											<li><a href="suppliers.html">Suppliers</a></li>
+
+										</ul>
+									</li>
+									<li class="dropdown"><a href="#">Resources</a>
+										<ul>
+											<li><a href="articles.html">Articles</a></li>
+
+										</ul>
+									</li>
+									<li><a href="contact.html">Contact us</a></li>
+								</ul>
+							</div>
+						</nav><!-- Main Menu End-->
+					</div>
+
+				</div>
+			</div>
+			<!--End Sticky Header-->
+
+		</header>
+		<!--End Main Header -->
+
+		<!--Page Title-->
+		<section class="page-title" style="background-image:url(images/5.jpg)">
+			<!--Team Page Section-->
+			<section class="">
+				<div class="auto-container">
+					<div class="hero-image">
+						<div class="hero-text">
+							<h1 style="font-size:40px; overflow: visible">FIND WHAT YOU NEED</h1>
+							<p style="font-size:20px;">Discover hard to find parts</p>
+							<div class="form-row">
+								<div class="row no-gutters custom-search-input-2">
+									<div>
+											<form autocomplete="off" action="/action_page.php">
+												<div class="autocomplete" style="width:300px;">
+												  <input id="myInput" type="text" name="myCountry" placeholder="Country">
+												</div>
+												<input type="submit" data-bind="click: doSearch">
+											  </form>
+									</div>
+
+
+								</div>
+							
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<div class="container">
+			<div class="row"><h3> Search Results:</h3></div>
+			<div class="well" data-bind="visible: hasResults==false">
+				<h4>No results found for: </h4>
+			</div>
+			
+			<div class="row" data-bind="visible: hasResults">
+				<div class="col-lg-12">
+					<!-- Wishlist Table Area -->
+					<div class="cart-table table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="pro-thumbnail">Image</th>
+									<th class="pro-title">Product</th>
+									<th class="pro-price">Description</th>
+									<th class="pro-quantity">Stock Status</th>
+									<th class="pro-subtotal">Add to Quote</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="pro-thumbnail " align="center"><a href="#"><img style="width:75px" class="img-fluid img-thumbnail grow"
+												src="https://media.digikey.com/Photos/Molex/0688014146.jpg" alt="Product"></a></td>
+									<td class="pro-title" style="font-size:20px;font-weight: 700" verticalAlignment="center"><a href="#">General Cable</a></td>
+									<td class="pro-price"><span>General stock cable.</span></td>
+									<td class="pro-quantity"><span class="text-success">In Stock</span></td>
+									<td class="pro-subtotal"><a href="#" class="btn btn-sm btn-info btn-add-to-cart">Add to Quote</a>
+									</td>
+									<!-- <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td> -->
+								</tr>
+								<tr>
+									<td class="pro-thumbnail" align="center"><a href="#"><img style="width:75px" class="img-fluid img-thumbnail"
+												src="https://media.digikey.com/Photos/Digi%20Int'l%20Photos/76000264.jpg" alt="Product"></a></td>
+									<td class="pro-title" style="font-size:20px;font-weight: 700"><a href="#">Connector D 420</a></td>
+									<td class="pro-price"><span>12 prong adapter cable</span></td>
+									<td class="pro-quantity"><span class="text-success">In Stock</span></td>
+									<td class="pro-subtotal"><a href="#" class="btn btn-sm btn-info btn-add-to-cart">Add to Quote</a>
+									</td>
+								</tr>
+								<tr>
+									<td class="pro-thumbnail" align="center"><a href="#"><img style="width:75px" class="img-fluid img-thumbnail"
+												src="https://media.digikey.com/Photos/Digi%20Int'l%20Photos/70001806.jpg" alt="Product"></a></td>
+									<td class="pro-title" style="font-size:20px;font-weight: 700"><a href="#">POWER SUPPLY TS</a></td>
+									<td class="pro-price"><span>14v 2/a power supply</span></td>
+									<td class="pro-quantity"><span class="text-danger">Stock Out</span></td>
+									<td class="pro-subtotal"><a href="#" class="btn btn-sm btn-info btn-add-to-cart">Add to Quote</a></td>
+								</tr>
+								<tr>
+									<td class="pro-thumbnail" align="center"><a href="#"><img style="width:75px" class="img-fluid img-thumbnail"
+												src="https://media.digikey.com/Photos/Digi%20Int'l%20Photos/70001805.jpg" alt="Product"></a></td>
+									<td class="pro-title" style="font-size:20px;font-weight: 700"><a href="#">SERV/SER TO ETHER </a></td>
+									<td class="pro-price"><span>Multi Servo</span></td>
+									<td class="pro-quantity"><span class="text-success">In Stock</span></td>
+									<td class="pro-subtotal">
+										<a href="#" class="btn btn-sm btn-info btn-add-to-cart">Add to Quote</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+
+
+
+		<!--End Page Title-->
+
+		<!--Main Footer-->
+		<footer class="main-footer">
+			<div class="auto-container">
+				<!--Widgets Section-->
+				<div class="widgets-section">
+					<div class="row clearfix">
+
+						<!--Column-->
+						<div class="big-column col-lg-6 col-md-12 col-sm-12">
+							<div class="row clearfix">
+
+								<!--Footer Column-->
+								<div class="footer-column col-lg-6 col-md-6 col-sm-12">
+									<div class="footer-widget logo-widget">
+										<div class="logo">
+											<a href="index.html"><img src="images/footer-logo.png" alt="" /></a>
+										</div>
+										<div class="text">St. Petersburg, FL</div>
+										<ul class="list-style-one">
+											<li><span>Phone:</span> 1-813-256-2500</li>
+											<li><span>Email:</span> adamesluis@gmail.com</li>
+											<li><span>Working Hours:</span> Mon - Fri: 9am - 6pm</li>
+										</ul>
+										<!--Social Icon One-->
+										<ul class="social-icon-one">
+											<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+											<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+											<li><a href="#"><span class="fa fa-vimeo"></span></a></li>
+											<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+											<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+										</ul>
+									</div>
+								</div>
+
+								<!--Footer Column-->
+								<div class="footer-column col-lg-6 col-md-6 col-sm-12">
+									<div class="footer-widget links-widget">
+										<h2>Quick Links</h2>
+										<ul class="footer-link">
+											<li><a href="#">About Us</a></li>
+											<li><a href="#">Our Services</a></li>
+											<li><a href="#">Line Card</a></li>
+											<li><a href="#">Products</a></li>
+											<li><a href="#">Get Quote</a></li>
+											<li><a href="#">Upload BOM</a></li>
+											<li><a href="#">Contact Us</a></li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<!--Column-->
+						<div class="big-column col-lg-6 col-md-12 col-sm-12">
+							<div class="row clearfix">
+
+								<!--Footer Column-->
+								<div class="footer-column col-lg-6 col-md-6 col-sm-12">
+									<div class="footer-widget posts-widget">
+										<h2>Recent Posts</h2>
+
+										<article class="post">
+											<div class="text"><a href="blog-single.html">Why Choose Us</a></div>
+											<ul class="post-date">
+												<li>By Luis Adames</li>
+												<li>Sep 25 2019</li>
+											</ul>
+										</article>
+
+										<article class="post">
+											<div class="text"><a href="blog-single.html">New Web Site</a></div>
+											<ul class="post-date">
+												<li>By Admin</li>
+												<li>Sep 25 2019</li>
+											</ul>
+										</article>
+
+
+
+									</div>
+								</div>
+
+								<!--Footer Column-->
+								<div class="footer-column col-lg-6 col-md-6 col-sm-12">
+									<div class="footer-widget newsletter-widget">
+										<h2>Our Newsletter</h2>
+										<div class="text">Stay up to date by geting out newsletter</div>
+										<div class="newsletter-form">
+											<form method="post" action="#">
+												<div class="form-group">
+													<input type="email" name="email" value=""
+														placeholder="Email address" required="">
+												</div>
+												<div class="form-group">
+													<button type="submit"
+														class="theme-btn btn-style-one">Subscribe</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--Footer Bottom-->
+			<div class="footer-bottom">
+				<div class="auto-container">
+					<div class="row clearfix">
+						<div class="column col-md-6 col-sm-12 col-xs-12">
+							<div class="copyright">Copyrights &copy; 2019 Global Electronics. All Rights Reserved.
+							</div>
+						</div>
+						<div class="column col-md-6 col-sm-12 col-xs-12">
+							<ul class="footer-nav">
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Legal Terms</a></li>
+								<li><a href="#">FAQ’s</a></li>
+								<li><a href="#">Support</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!--End Main Footer-->
+
+	</div>
+	<!--End pagewrapper-->
+	<!--Scroll to top-->
+	<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up"></span></div>
+
+	<script src="images/jquery.js"></script>
+	<script src="images/popper.min.js"></script>
+	<script src="images/bootstrap.min.js"></script>
+	<script src="images/jquery.mcustomscrollbar.concat.min.js"></script>
+	<script src="images/jquery.fancybox.js"></script>
+	<script src="images/appear.js"></script>
+	<script src="images/owl.js"></script>
+	<script src="images/wow.js"></script>
+	<script src="images/slick.js"></script>
+	<script src="images/jquery-ui.js"></script>
+	<script src="images/script.js"></script>
+	<script src="js/knockout.js"></script>
+	<script src="js/viewModels/Search.js"></script>
+
+
+
+
+	<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+		  b = document.createElement("DIV");
+		  
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var countries = [
+"Batteries",
+"Chargers",
+"Capacitors",
+"Cables",
+"Power",
+"Switches"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), countries);
+
+		function show() {
+			var theResults = document.getElementById("results");
+			theResults.style.display = "block";
+		}
+	</script>
+
+</body>
+
+</html>

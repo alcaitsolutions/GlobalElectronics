@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+        <title>Selectricom Administration</title>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="images/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="images/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="images/select2.min.css">
+		<link rel="stylesheet" type="text/css" href="images/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="images/style.css">
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    <body>
+        <div class="main-wrapper">
+
+             <!-- BEGIN HEADER -->
+            <div class="header">
+                <div class="header-left">
+                    <a href="index.html" class="logo">
+						<img src="images/logo.png" width="40" height="40" alt="">
+					</a>
+                </div>
+                <div class="page-title-box pull-left">
+					<h3>Selectricom</h3>
+                </div>
+				<a id="mobile_btn" class="mobile_btn pull-left" href="#sidebar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+				<ul class="nav navbar-nav navbar-right user-menu pull-right">
+				
+					<li class="dropdown">
+						<a href="profile.html" class="dropdown-toggle user-link" data-toggle="dropdown" title="Admin">
+							<span class="user-img"><img class="img-circle" src="images/user.jpg" width="40" alt="Admin">
+							<span class="status online"></span></span>
+							<span>Luis</span>
+							<i class="caret"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="profile.html">My Profile</a></li>
+							<li><a href="edit-profile.html">Edit Profile</a></li>
+							<li><a href="settings.html">Settings</a></li>
+							<li><a href="logout.html">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="dropdown mobile-user-menu pull-right">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+					<ul class="dropdown-menu pull-right">
+						<li><a href="profile.html">My Profile</a></li>
+						<li><a href="edit-profile.html">Edit Profile</a></li>
+						<li><a href="settings.html">Settings</a></li>
+						<li><a href="logout.html">Logout</a></li>
+					</ul>
+				</div>
+            </div>
+            <!-- // END HEADER -->
+
+
+            <!-- MAIN MENU BEGIN -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+					<div id="sidebar-menu" class="sidebar-menu">
+						<ul>
+							<li class="active"> 
+								<a class="noti-dot" href="index.html">Dashboard</a>
+							</li>
+							<li class="submenu">
+								<a href="#" ><span> Quotes</span> <span class="menu-arrow"></span></a>
+								<ul class="list-unstyled" style="display: none;">
+									<li><a href="quotes.html">All Quotes</a></li>
+									<li><a href="quotes-create.html">Create New Quote</a></li>
+									
+								</ul>
+							</li>
+							
+                            
+							
+							</li>
+						
+					
+					
+							
+						</ul>
+					</div>
+                </div>
+            </div>
+            <!-- // END MAIN MENU BEGIN -->
+
+            <!-- PAGE CONTENT BEGIN -->
+            <div class="page-wrapper">
+                    <div class="content container-fluid">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h4 class="page-title">Create Estimate</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Quote Number <span class="text-danger">*</span></label>
+                                                 <input class="form-control" type="text" data-bind="value: quoteNumber">
+                                            </div>
+                                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Client <span class="text-danger">*</span></label>
+                                                 <input class="form-control" type="text" data-bind="value: clientName">
+                                            </div>
+                                        </div>
+                                     
+                                        
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input class="form-control" type="email" data-bind="value: clientName">
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Client Address</label>
+                                                <textarea class="form-control" rows="3" data-bind="value: clientAddress"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Billing Address</label>
+                                                <textarea class="form-control" rows="3" data-bind="value: clientBillingAddress"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Estimate Date <span class="text-danger">*</span></label>
+                                                <div class="cal-icon"><input class="form-control datetimepicker" type="text" data-bind="value: quoteDate"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Expiry Date <span class="text-danger">*</span></label>
+                                                <div class="cal-icon"><input class="form-control datetimepicker" type="text" data-bind="value: quoteExpire"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover table-white">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 20px">#</th>
+                                                            <th class="col-sm-2">Item Number / ID</th>
+                                                            <th class="col-md-6">Item Name</th>
+                                                            <th style="width:100px;">Price</th>
+                                                            <th style="width:80px;">Qty</th>
+                                                            <th>Amount</th>
+                                                            <th><i class="fa fa-plus"  data-bind="click: addItem"></i> </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody data-bind="foreach: item">
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>
+                                                            <input class="form-control" type="text" style="min-width:150px" data-bind="value: id, uniqueName: true">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control" type="text" style="min-width:150px" data-bind="value: name, uniqueName: true">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control" style="width:100px" type="text" data-bind="value: price, uniqueName: true">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control" style="width:80px" type="text" data-bind="value: qty, uniqueName: true">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control" readonly style="width:120px" type="text" data-bind="value: amount, uniqueName: true">
+                                                        </td>
+                                                        <td><a href="javascript:void(0)" class="text-danger font-18" title="Remove" data-bind='click: removeItem'><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-hover table-white">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td class="text-right">Sub Total</td>
+                                                            <td style="text-align: right; padding-right: 30px;width: 230px"><span data-bind="text: subTotal">0</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5" style="text-align: right; font-weight: bold">
+                                                                Grand Total
+                                                            </td>
+                                                            <td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px;width: 230px">
+                                                                $ <span data-bind="text: grandTotal">0.00</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>                               
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Other Information</label>
+                                                        <textarea class="form-control" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary">Save & Send</button> <button class="btn btn-primary" data-bind="click: save">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            <!--// END PAGE CONTENT -->
+        </div>
+		<div class="sidebar-overlay" data-reff="#sidebar"></div>
+        <script type="text/javascript" src="images/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="images/bootstrap.min.js"></script>
+		<script type="text/javascript" src="images/jquery.slimscroll.js"></script>
+		<script type="text/javascript" src="images/moment.min.js"></script>
+		<script type="text/javascript" src="images/select2.min.js"></script>
+		<script type="text/javascript" src="images/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="images/app.js"></script>
+        <script  src="js/knockout-3.4.2.js"></script>
+        <script  src="js/ko-test.js"></script>
+        <script>
+        // On ready script
+        $("document").ready(function(){
+			
+        })
+        </script>
+
+		
+    </body>
+
+
+</html>
